@@ -58,6 +58,7 @@ app.get("/new", (req, res) => {
 
     write_data("users", result, (err) => {
       if(err) {
+        console.log(err);
         return res.status(500).send('Error creating new record.');
       }
 

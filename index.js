@@ -48,15 +48,16 @@ app.get("/new", (req, res) => {
     const new_id = result.records.record.length + 1;
     const new_record = { id: new_id, name, email };
 
-    result.records.record.push(new_record);
+    res.send(result.records.record);
+    // result.records.record.push(new_record);
 
-    write_data("users", result, (err) => {
-      if(err) {
-        return res.status(500).send('Error creating new record.');
-      }
+    // write_data("users", result, (err) => {
+    //   if(err) {
+    //     return res.status(500).send('Error creating new record.');
+    //   }
 
-      res.redirect(`/users`);
-    });
+    //   res.redirect(`/users`);
+    // });
   });
 });
 
